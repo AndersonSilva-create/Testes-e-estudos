@@ -13,5 +13,7 @@ int main() {
     printf("O produto %s tem %u inidade no estoque, cada unidade custa R$%.2f e o estoque mminimo é de %u unidades.\n", produtoB, estoqueB, preçoB, estoqueMinB);
     printf("O valor total do estoque é de R$%.2f para o produto %s e R$%.2f para o produto %s.\n", valorTotalA, produtoA, valorTotalB, produtoB);
 
+    //Não gosto de comparar da forma que foi passada, pois ja sei utilizar os metodos de comparação(if, else if, else)
+
     return 0;
 }
