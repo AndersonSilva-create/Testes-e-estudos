@@ -3,7 +3,7 @@
 int main()
 {
 
-    int codigo, populacao, pontos;
+    int codigo, populacao, pontos, escolha;
     char estado[10], nome[100];
     float area, pib;
     printf("escreva a letra da carta");
@@ -22,7 +22,7 @@ int main()
     scanf("%d", &pontos);
 
     printf("\nCarta 1\n");
-    printf("Certa: %s\nEstado: %d\nCódigo: %s\nPopulação: %d\nÁrea: %f\nPIB: %f\nPontos Turísticos: %d\n", estado, codigo, nome, populacao, area, pib, pontos);
+    printf("Estado: %s\nCódigo: %d\nCidade: %s\nPopulação: %d\nÁrea: %f\nPIB: %f\nPontos Turísticos: %d\n", estado, codigo, nome, populacao, area, pib, pontos);
 
     int codigo2, populacao2, pontos2;
     char estado2[10], nome2[100];
@@ -43,98 +43,65 @@ int main()
     printf("escreva o numero de pontos turisticos da carta");
     scanf("%d", &pontos2);
     printf("\nCarta 2\n");
-    printf("Certa: %s\nEstado: %d\nCódigo: %s\nPopulação: %d\nÁrea: %f\nPIB: %f\nPontos Turísticos: %d\n", estado2, codigo2, nome2, populacao2, area2, pib2, pontos2);
+    printf("Estado: %s\nCódigo: %d\nCidade: %s\nPopulação: %d\nÁrea: %f\nPIB: %f\nPontos Turísticos: %d\n", estado2, codigo2, nome2, populacao2, area2, pib2, pontos2);
 
-    if (area > area2)
-    {
-        printf("A carta 1 tem uma área maior que a carta 2.\n");
-    }
-    else if (area < area2)
-    {
-        printf("A carta 2 tem uma área maior que a carta 1.\n");
-    }
-    else
-    {
-        printf("As cartas têm a mesma área.\n");
-    }
+    printf("\nComparação entre as cartas:\n1 - Pontos Turísticos\n2 - População\n3 - Área\n4 - PIB\n5 - Densidade demográfica\n");
+    scanf("%d", &escolha);
 
-    if (pib > pib2)
+    switch (escolha)
     {
-        printf("A carta 1 tem um PIB maior que a carta 2.\n");
+    case 1:
+        if (pontos > pontos2) {
+            printf("A carta 1 tem mais pontos turísticos do que a carta 2.\n");
+        } else if (pontos < pontos2) {
+            printf("A carta 2 tem mais pontos turisticos do que a carta 1.\n");
+        } else {
+            printf("As cartas têm o mesmo número de pontos turísticos.\n");
+        }
+        break;
+    case 2:
+        if (populacao > populacao2) {
+            printf("A carta 1 tem mais população do que a carta 2.\n");
+        } else if (populacao < populacao2) {
+            printf("A carta 2 tem mais população do que a carta 1.\n");
+        } else {
+            printf("As cartas têm a mesma população.\n");
+        }
+        break;
+    case 3:
+        if (area > area2) {
+            printf("A carta 1 tem mais área do que a carta 2.\n");
+        } else if (area < area2) {
+            printf("A carta 2 tem mais área do que a carta 1.\n");
+        } else {
+            printf("As cartas têm a mesma área.\n");
+        }
+        break;
+    case 4:
+        if (pib > pib2) {
+            printf("A carta 1 tem mais PIB do que a carta 2.\n");
+        } else if (pib < pib2) {
+            printf("A carta 2 tem mais PIB do que a carta 1.\n");
+        } else {
+            printf("As cartas têm o mesmo PIB.\n");
+        }
+        break;
+    case 5:
+        {
+            float densidade1 = populacao / area;
+            float densidade2 = populacao2 / area2;
+            if (densidade1 > densidade2) {
+                printf("A carta 1 tem uma densidade demográfica maior do que a carta 2.\n");
+            } else if (densidade1 < densidade2) {
+                printf("A carta 2 tem uma densidade demográfica maior do que a carta 1.\n");
+            } else {
+                printf("As cartas têm a mesma densidade demográfica.\n");
+            }
+        }
+        break;
+    default:
+        printf("Opção inválida.\n");
+        break;
     }
-    else if (pib < pib2)
-    {
-        printf("A carta 2 tem um PIB maior que a carta 1.\n");
-    }
-    else
-    {
-        printf("As cartas têm o mesmo PIB.\n");
-    }
-
-    if (populacao / area > populacao2 / area2)
-    {
-        printf("A carta 1 tem uma densidade populacional maior que a carta 2.\n");
-    }
-    else if (populacao / area < populacao2 / area2)
-    {
-        printf("A carta 2 tem uma densidade populacional maior que a carta 1.\n");
-    }
-    else
-    {
-        printf("As cartas têm a mesma densidade populacional.\n");
-    }
-
-    if (pontos > pontos2)
-    {
-        printf("A carta 1 tem mais pontos turísticos que a carta 2.\n");
-    }
-    else if (pontos < pontos2)
-    {
-        printf("A carta 2 tem mais pontos turísticos que a carta 1.\n");
-    }
-    else
-    {
-        printf("As cartas têm o mesmo número de pontos turísticos.\n");
-    }
-
-    if (codigo > codigo2)
-    {
-        printf("A carta 1 tem um código maior que a carta 2.\n");
-    }
-    else if (codigo < codigo2)
-    {
-        printf("A carta 2 tem um código maior que a carta 1.\n");
-    }
-    else
-    {
-        printf("As cartas têm o mesmo código.\n");
-    }
-
-    if (estado[0] > estado2[0])
-    {
-        printf("A carta 1 tem um estado com letra inicial maior que a carta 2.\n");
-    }
-    else if (estado[0] < estado2[0])
-    {
-        printf("A carta 2 tem um estado com letra inicial maior que a carta 1.\n");
-    }
-    else
-    {
-        printf("As cartas têm estados com a mesma letra inicial.\n");
-    }
-
-    if (nome[0] > nome2[0])
-    {
-        printf("A carta 1 tem um nome de cidade com letra inicial maior que a carta 2.\n");
-    }
-    else if (nome[0] < nome2[0])
-    {
-        printf("A carta 2 tem um nome de cidade com letra inicial maior que a carta 1.\n");
-    }
-    else
-    {
-        printf("As cartas têm nomes de cidade com a mesma letra inicial.\n");
-    }
-
     return 0;
 }
